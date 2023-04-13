@@ -42,12 +42,15 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
 # TODO: add another API route with a query parameter to retrieve quotes based on max age
 @app.get("/get-quote")
 def get_quote(maxAge: str):
+    # get the current date object
     currentDay = datetime.now()
+
+    # query == week, check each quoteObject and check if their date difference is 7 or less days (which is a week ago)
     if maxAge == "week":
         for obj in database["posts"]:
             objDay = datetime.fromisoformat(obj["time"])
-            if (currentDay - objDay).days == 7:
-                return obj["message"]
+            if (currentDay - objDay).days <= 7:
+                return obj
     # elif maxAge == "month":
 
     # elif maxAge == "year":

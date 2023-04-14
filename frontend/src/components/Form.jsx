@@ -23,6 +23,10 @@ export default function Form() {
     console.log(formInfo);
   }
 
+  React.useEffect(() => {
+
+  }, [])
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="input-name">Name</label>
@@ -43,15 +47,16 @@ export default function Form() {
         onChange={handleChange}
         required
       />
-      <label htmlFor="max-age">Quote Age</label>
+      <button>Submit</button>
+    </form>
+  );
+}
+
+{/* <label htmlFor="max-age">Quote Age</label>
       <select name="maxAge" id="max-age" onChange={handleChange}>
         <option value="">---Choose an option---</option>
         <option value="year">Up to a year ago</option>
         <option value="month">Up to a month ago</option>
         <option value="week">Up to a week ago</option>
         <option value="all">All the quotes</option>
-      </select>
-      <button>Submit</button>
-    </form>
-  );
-}
+      </select> */}

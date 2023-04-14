@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 export default function Form() {
   const [formInfo, setFormInfo] = useState({
     name: "",
     message: "",
-    time: "",
-    maxAge: "",
   });
 
   function handleChange(event) {
@@ -20,23 +18,19 @@ export default function Form() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    axios
-      .post("/quote", {
-        "name": formInfo.name,
-        "message": formInfo.message,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const params = new URLSearchParams();
+    params.append("name", formInfo.name)
+    params.append("message", formInfo.message)
+    console.log(params)
+    axios.post("/api/quote", params)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+
+    console.log(formInfo)
   }
 
-
-
   return (
-    <form onSubmit={handleSubmit} action="api/quote" method="post">
+    <form onSubmit={handleSubmit}>
       <label htmlFor="input-name">Name</label>
       <input
         type="text"

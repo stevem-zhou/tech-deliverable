@@ -1,8 +1,12 @@
 import React from "react";
 
-export default function Quote(props){
-    return(
-      <p>Peter Anteater</p>
-
-    )
+export default function Quote(props) {
+  console.log(props);
+  return (
+    <>
+      <p>
+        "{props.message}" - {props.name}, {props.time}
+      </p>
+    </>
+  );
 }

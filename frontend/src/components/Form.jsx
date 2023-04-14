@@ -52,11 +52,3 @@ export default function Form() {
   );
 }
 
-{/* <label htmlFor="max-age">Quote Age</label>
-      <select name="maxAge" id="max-age" onChange={handleChange}>
-        <option value="">---Choose an option---</option>
-        <option value="year">Up to a year ago</option>
-        <option value="month">Up to a month ago</option>
-        <option value="week">Up to a week ago</option>
-        <option value="all">All the quotes</option>
-      </select> */}

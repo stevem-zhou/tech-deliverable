@@ -1,11 +1,12 @@
 import "./App.css";
+import Header from "./components/Header";
 
 function App() {
 	return (
 		<div className="App">
 			{/* TODO: include an icon for the quote book */}
-			<h1>Hack @ UCI Tech Deliverable</h1>
-
+			<Header/>
+			
 			<h2>Submit a quote</h2>
 			{/* TODO: implement custom form submission logic to not refresh the page */}
 			<form action="/api/quote" method="post">

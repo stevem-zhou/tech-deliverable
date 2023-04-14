@@ -44,21 +44,29 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
 def get_quote(maxAge: str):
     # get the current date object
     currentDay = datetime.now()
-
+    quoteList = []
     # query == week, check each quoteObject and check if their date difference is 7 or less days (which is a week ago)
     if maxAge == "week":
         for obj in database["posts"]:
             objDay = datetime.fromisoformat(obj["time"])
             if (currentDay - objDay).days <= 7:
-                return obj
-    # elif maxAge == "month":
+                quoteList.append(obj)
+    # query == month, check each quoteObject and check if their date difference is 30 or less (which is approximately a month ago)
+    elif maxAge == "month":
+        for obj in database["posts"]:
+            objMonth = datetime.fromisoformat(obj["time"])
+            if (currentDay - objMonth).days <= 30:
+                quoteList.append(obj)
+    # query == year, check each quoteObject and check if their date difference is 365 or less (which a year ago)
+    elif maxAge == "year":
+        for obj in database["posts"]:
+            objYear = datetime.fromisoformat(obj["time"])
+            if (currentDay - objYear).days <= 365:
+                quoteList.append(obj)
+    # return all the quotes in a list
+    elif maxAge == "all":
+        return database["posts"]
 
-    # elif maxAge == "year":
+    return quoteList
 
-    # elif maxAge == "all":
-
-
-    # for obj in database["posts"]:
-    #     if obj["name"] == name:
-    #         return obj
 

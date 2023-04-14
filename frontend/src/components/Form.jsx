@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Form() {
-  const [formInfo, setFormInfo] = React.useState({
+  const [formInfo, setFormInfo] = useState({
     name: "",
     message: "",
     time: "",
@@ -20,15 +20,23 @@ export default function Form() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(formInfo);
+    axios
+      .post("/quote", {
+        "name": formInfo.name,
+        "message": formInfo.message,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
-  React.useEffect(() => {
 
-  }, [])
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} action="api/quote" method="post">
       <label htmlFor="input-name">Name</label>
       <input
         type="text"
@@ -51,4 +59,3 @@ export default function Form() {
     </form>
   );
 }
-

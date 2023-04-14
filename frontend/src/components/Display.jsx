@@ -34,7 +34,7 @@ export default function Display() {
     setQuotes(newQuotes);
   }
 
-  console.log(quotes);
+//   console.log(quotes);
 
   return (
     <div>

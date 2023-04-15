@@ -1,5 +1,5 @@
 import React from "react";
-import quoteBookLogo from "../images/quotebook.png";
+import quoteBookLogo from "../../images/quotebook.png";
 import "./Header.css";
 
 export default function Header() {

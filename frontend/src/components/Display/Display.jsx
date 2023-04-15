@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Quote from "./Quote";
-import Form from "./Form";
+import Quote from "../Quote/Quote";
+import Form from "../Form/Form";
 import "./Display.css";
 
 export default function Display() {

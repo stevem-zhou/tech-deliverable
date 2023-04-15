@@ -1,0 +1,68 @@
+.display--form--container {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #e6ccb2;
+}
+
+.messages {
+  background-color: #ede0d4;
+  width: 50vw;
+  padding: 16px 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.display--select {
+  cursor: pointer;
+  width: 20 0px;
+  height: 34px;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: 0px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ddb892;
+  background-position-x: 228px;
+  font-family: "Rubik", sans-serif;
+  color: #353535;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+option:first-child {
+  font-weight: bold;
+}
+
+.quote--label {
+  margin-right: 10px;
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.form--container {
+  margin-bottom: 15px;
+}
+
+.form--container > h2 {
+  text-align: center;
+  margin-top: 15px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+.age--container {
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .messages {
+    width: 70vw;
+  }
+}

@@ -1,0 +1,21 @@
+hr{
+    border: 1px solid #B08968;
+}
+
+.quote--name{
+    text-align: left;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.quote--time{
+    text-align: right;
+    margin-right: 10px;
+    color: #646262;
+}
+
+.quote--message{
+    text-align: center;
+    font-weight: 500;
+}

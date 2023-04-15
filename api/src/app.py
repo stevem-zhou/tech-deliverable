@@ -40,6 +40,7 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
     You should not modify this function.
     """
     now = datetime.now().replace(microsecond=0)
+     
     post = {
         "name": name,
         "message": message,

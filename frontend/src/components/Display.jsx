@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Quote from "./Quote";
+import Form from "./Form";
 
 export default function Display() {
   const [maxAge, setMaxAge] = useState("");
@@ -10,7 +11,7 @@ export default function Display() {
     axios
       .get(`http://127.0.0.1:8000/get-quote?maxAge=${maxAge}`)
       .then((res) => {
-        createQuotes(res.data.posts);
+        setQuotes(res.data.posts);
       })
       .catch((err) => console.log(err));
   }, [maxAge]);
@@ -20,24 +21,25 @@ export default function Display() {
     setMaxAge(value);
   }
 
-  function createQuotes(quoteJSON) {
-    const newQuotes = quoteJSON.map((obj) => {
-      return (
-        <Quote
-          key={obj.time}
-          message={obj.message}
-          name={obj.name}
-          time={obj.time}
-        />
-      );
-    });
-    setQuotes(newQuotes);
-  }
+  const newQuotes = quotes.map((obj) => {
+    return (
+      maxAge ? <Quote
+        key={obj.time}
+        message={obj.message}
+        name={obj.name}
+        time={new Date(obj.time).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+      /> : []
+    );
+  });
 
-//   console.log(quotes);
+
+  console.log(quotes);
 
   return (
     <div>
+      <h2>Submit a quote</h2>
+      <Form setQuotes={setQuotes} maxAge={maxAge}/>
+      <h2>Previous Quotes</h2>
       <label htmlFor="max-age">Quote Age:</label>
       <select name="maxAge" id="max-age" onChange={handleChange}>
         <option value="">---Choose an option---</option>
@@ -46,7 +48,7 @@ export default function Display() {
         <option value="week">Up to a week ago</option>
         <option value="all">All the quotes</option>
       </select>
-      <div className="messages">{quotes}</div>
+      <div className="messages">{newQuotes}</div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ export default function Quote(props) {
   return (
     <>
       <p>
-        "{props.message}" - {props.name}, {props.time}
+        "{props.message}" - {props.name} --- {props.time}
       </p>
     </>
   );
